@@ -7,6 +7,12 @@ namespace WiredBrainCoffeeSurveys.Reports
     {
         static void Main(string[] args)
         {
+            GenerateTasksReport();
+
+        }
+
+        public static void GenerateTasksReport()
+        {
             var tasks = new List<string>();
 
             // Calculated Values
@@ -41,6 +47,25 @@ namespace WiredBrainCoffeeSurveys.Reports
                 tasks.Add("Rewards participant with discount coffee coupon.");
             }
 
+            switch (Q1Results.AreaToImprove)
+            {
+                case "RewardsProgram":
+                    tasks.Add("Revisit the rewards deals.");
+                    break;
+
+
+                case "Cleanliness":
+                    tasks.Add("Contact the cleaning vender");
+                    break;
+
+                case "MobileApp":
+                    tasks.Add("Contact consulting firm about app.");
+                    break;
+
+                default:
+                    tasks.Add("Investigate individual comments for ideas.");
+                    break;
+            }
         }
     }
 }
